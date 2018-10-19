@@ -6,12 +6,20 @@
   package:
     name: ntp
     state: present
+  register: install_packages
+  until: install_packages is success
+  retries: 5
+  delay: 2
 
 - name: Ensure tzdata package is installed (Linux).
   package:
     name: tzdata
     state: present
   when: ansible_system == "Linux"
+  register: install_packages_tz
+  until: install_packages_tz is success
+  retries: 5
+  delay: 2
 
 - include_tasks: clock-rhel-6.yml
   when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0] == '6'
