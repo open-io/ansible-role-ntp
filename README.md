@@ -58,7 +58,7 @@ None.
 
 ## License
 
-MIT / BSD
+GNU AFFERO GENERAL PUBLIC LICENSE, Version 3
 
 ## Author Information
 
